@@ -175,7 +175,7 @@ export default function App() {
 
     } catch (err: any) {
       console.error(err);
-      setError(err.message || (appState.language === 'pl' ? "Nie udało się wygenerować scenariusza. Spróbuj ponownie." : "Failed to generate script. Try again."));
+      setError(err.message || (appState.language === 'pl' ? "Nie udało się wygenerować scenariusza. Sprawdź ustawienia API Key." : "Failed to generate script. Check API Key settings."));
       setIsScriptGenerating(false);
     }
   };
@@ -513,7 +513,7 @@ export default function App() {
                     </div>
                     <div>
                         <h1 className="text-xl md:text-2xl font-comic text-white tracking-wide group-hover:text-indigo-200 transition-colors">
-                            {appState.language === 'pl' ? "Kreator Komiksów AI" : "AI Comic Creator"}
+                            komiks
                         </h1>
                         <p className="text-[10px] text-zinc-500 font-mono hidden md:block">Edycja A4 • Gemini 2.5</p>
                     </div>

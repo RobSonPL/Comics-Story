@@ -1,8 +1,11 @@
-
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { ComicStory, PanelData, ComicStyle, Language, GeneratedPanel } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY;
+if (!apiKey) {
+  console.warn("API_KEY is missing. If deploying to Vercel, please set the API_KEY environment variable in Project Settings.");
+}
+const ai = new GoogleGenAI({ apiKey: apiKey || 'dummy-key-to-prevent-crash' });
 
 // Dynamic schema generation based on panel count
 const createStorySchema = (panelCount: number, language: Language): Schema => {
